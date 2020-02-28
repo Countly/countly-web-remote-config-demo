@@ -133,8 +133,8 @@
         Countly.q = Countly.q || [];
     
         //provide countly initialization parameters
-        Countly.app_key = "39bfbfffdacb60970f2a306cdb314ac08faa94b8";
-        Countly.url = 'https://try.count.ly/';
+        Countly.app_key = "57a1a2d37c68b0f0238076f5f144ed8fee5a3a04";
+        Countly.url = 'https://demo.count.ly/';
         Countly.app_version = "1.0.0";
         Countly.debug = false;
         Countly.remote_config = true;
@@ -159,8 +159,6 @@
             document.getElementById(remoteConfigs.CTAButtonColor).checked = true
             document.getElementById("form").style.display = remoteConfigs.Form === "hide" ? "none" : "unset"
             document.getElementById("Form").checked = remoteConfigs.Form !== "hide"
-
-            console.log(remoteConfigs);
         }
     };
 
@@ -178,7 +176,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57aaf47243342b053f8c2f&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e590096b6e57432c373ad82&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
             document.getElementById("MainTitle").innerText = newValue
             xhr.send(data);
         }
@@ -197,7 +195,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57ab040587fe2b12182634&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900aab6e57432c373ad83&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
             document.getElementById("CTAHeading").innerText = newValue
             xhr.send(data);
         }
@@ -214,7 +212,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57abdcd7d02a57716565be&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900b36199db32c86b4f94&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
             document.getElementById("CTAButton").style.backgroundColor = newValue
             xhr.send(data);
         }
@@ -232,7 +230,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57aca17243342b053f8c71&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900c7b6e57432c373ad84&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
             document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
             xhr.send(data);
         }
@@ -242,7 +240,7 @@
             var cly = document.createElement('script'); cly.type = 'text/javascript';
             cly.async = true;
             //enter url of script here
-            cly.src = 'https://try.count.ly/sdk/web/countly.min.js';
+            cly.src = 'https://demo.count.ly/sdk/web/countly.min.js';
             cly.onload = function(){Countly.init()};
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
         })();
