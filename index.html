@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countly Remote Config Demo</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+    <div class="w-full shadow p-5 mb-10">
+        <img src="countly-logo.svg" width="200" alt="countly">
+    </div>
+    <div class="mx-auto p-5">
+        <div class="flex flex-row flex-wrap w-full">
+            <div class="flex flex-col flex-wrap md:w-5/12">
+                <div class="flex flex-wrap flex-row">
+                    <div class="md:w-1/3">
+                        <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                            1 - Edit Main Title
+                        </label>
+                    </div>
+                    <div class="md:w-1/3">
+                        <input class="appearance-none border-2 border-gray-700 rounded p-1" id="mainTitleInput"
+                            type="text" value="">
+                    </div>
+                    <div class="md:w-1/3">
+                        <button class="shadow font-bold py-2 px-4 rounded" onclick="saveMainTitle()" type="button">
+                            Save
+                        </button>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="md:w-1/3">
+                        <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                            2 - Edit CTA Heading
+                        </label>
+                    </div>
+                    <div class="md:w-1/3">
+                        <input class="appearance-none border-2 border-gray-700 rounded p-1" id="CTAHeadingInput"
+                            type="text" value="">
+                    </div>
+                    <div class="md:w-1/3">
+                        <button class="shadow font-bold py-2 px-4 rounded" onclick="saveCTAHeading()" type="button">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row flex-wrap md:w-4/12">
+                <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                    3 - Change the color of CTA Button
+                </label>
+                <div class="flex flex-col">
+                    <div>
+                        <input type="radio" id="red" onchange="colorChanged(this)" name="gender" value="red">
+                        <label for="red">Red</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="green" onchange="colorChanged(this)" name="gender" value="green">
+                        <label for="green">Green</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="blue" onchange="colorChanged(this)" name="gender" value="blue">
+                        <label for="blue">Blue</label>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="flex flex-row md:w-3/12">
+                <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                    4 - Show / Hide Form
+                </label>
+                <div>
+
+                    <input type="checkbox" id="Form" onchange="formStatus()" name="Form" checked>
+                    <label for="vehicle3"> Show the form</label>
+                </div>
+
+
+            </div>
+
+        </div>
+        <hr class="my-4">
+        <div class="flex flex-row flex-wrap w-full">
+            <div class="md:w-1/2 p-4">
+                <h1 class="text-3xl" id="MainTitle">Main Title</h1>
+                <h3 class="text-xl">Cheese slices ricotta circles</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
+                    leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+            <div class="md:w-1/2 p-4">
+                <h1 class="text-3xl" id="CTAHeading">CTA Heading</h1>
+                <span>Macoroni cheese slices squirty cheese edam</span>
+                <form class="p-5" id="form">
+                    <div class="mb-4">
+
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="username" type="text" placeholder="name">
+                    </div>
+                    <div class="mb-6">
+
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            id="password" type="text" placeholder="email">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="shadow font-bold py-2 px-4 rounded text-white" type="button" id="CTAButton">
+                            CTA Button
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type='text/javascript'>
+        //some default pre init
+        var Countly = Countly || {};
+        Countly.q = Countly.q || [];
+    
+        //provide countly initialization parameters
+        Countly.app_key = "39bfbfffdacb60970f2a306cdb314ac08faa94b8";
+        Countly.url = 'https://try.count.ly/';
+        Countly.app_version = "1.0.0";
+        Countly.debug = false;
+        Countly.remote_config = true;
+
+        Countly.q.push(['track_sessions']);
+        Countly.q.push(['track_pageview']);
+        Countly.q.push(['track_clicks']);
+        Countly.q.push(['track_errors']);
+        Countly.q.push(['track_links']);
+        Countly.q.push(['track_forms']);
+        Countly.q.push(['collect_from_forms']);
+        Countly.q.push(['track_scrolls']);
+    
+
+        Countly.remote_config = function(err, remoteConfigs){
+        if (!err) {
+            document.getElementById("MainTitle").innerText = remoteConfigs.MainTitle
+            document.getElementById("mainTitleInput").value = remoteConfigs.MainTitle
+            document.getElementById("CTAHeading").innerText = remoteConfigs.CTAHeading
+            document.getElementById("CTAHeadingInput").value = remoteConfigs.CTAHeading
+            document.getElementById("CTAButton").style.backgroundColor = remoteConfigs.CTAButtonColor
+            document.getElementById(remoteConfigs.CTAButtonColor).checked = true
+            document.getElementById("form").style.display = remoteConfigs.Form === "hide" ? "none" : "unset"
+            document.getElementById("Form").checked = remoteConfigs.Form !== "hide"
+
+            console.log(remoteConfigs);
+        }
+    };
+
+
+        function saveMainTitle(){
+            var newValue = document.getElementById("mainTitleInput").value
+            var data = JSON.stringify(false);
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            var newData = {
+            parameter_key: "MainTitle",
+            default_value: newValue,
+            conditions: [ ],
+            description: "-"
+            }
+            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57aaf47243342b053f8c2f&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            document.getElementById("MainTitle").innerText = newValue
+            xhr.send(data);
+        }
+
+
+        function saveCTAHeading(){
+            var newValue = document.getElementById("CTAHeadingInput").value
+            var data = JSON.stringify(false);
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            var newData = {
+            parameter_key: "CTAHeading",
+            default_value: newValue,
+            conditions: [ ],
+            description: "-"
+            }
+            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57ab040587fe2b12182634&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            document.getElementById("CTAHeading").innerText = newValue
+            xhr.send(data);
+        }
+
+
+        function colorChanged(e){
+            var data = JSON.stringify(false);
+            var newValue = e.value;
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            var newData = {
+            parameter_key: "CTAButtonColor",
+            default_value: newValue,
+            conditions: [ ],
+            description: "-"
+            }
+            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57abdcd7d02a57716565be&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            document.getElementById("CTAButton").style.backgroundColor = newValue
+            xhr.send(data);
+        }
+
+
+        function formStatus(){
+            var data = JSON.stringify(false);
+            var newValue = document.getElementById("Form").checked ? "unset" : "hide";
+            console.log(newValue)
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            var newData = {
+            parameter_key: "Form",
+            default_value: newValue,
+            conditions: [ ],
+            description: "-"
+            }
+            xhr.open("GET", "https://try.count.ly/i/remote-config/update-parameter?parameter_id=5e57aca17243342b053f8c71&app_id=5e57a8c32bc92c2af978df6f&api_key=4ea73d2c722951b73e9ed1dc77bc6b47&parameter="+ JSON.stringify(newData));
+            document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
+            xhr.send(data);
+        }
+
+        //load countly script asynchronously
+        (function() {
+            var cly = document.createElement('script'); cly.type = 'text/javascript';
+            cly.async = true;
+            //enter url of script here
+            cly.src = 'https://try.count.ly/sdk/web/countly.min.js';
+            cly.onload = function(){Countly.init()};
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
+        })();
+
+    </script>
+</body>
+
+</html>
