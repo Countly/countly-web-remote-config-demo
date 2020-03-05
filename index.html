@@ -186,23 +186,26 @@
 
         function saveMainTitle(){
             var newValue = document.getElementById("mainTitleInput").value
-            var data = JSON.stringify(false);
-
             var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
             xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
             xhr.send();
             xhr.onreadystatechange = function () {
             if (this.readyState === 4) {
                 if ((this.status == 200) && (this.status < 300)) {
                 var mainTitleObject=getByKey("MainTitle",JSON.parse(this.responseText).parameters)
+                delete mainTitleObject['_id'];
                 mainTitleObject.default_value = newValue
-                console.log(this.responseText)
+                console.log(JSON.stringify(mainTitleObject))
                 var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609feeb6e57432c374042f&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(mainTitleObject));
-                document.getElementById("MainTitle").innerText = newValue
-                xhr.send(data);
+                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609feeb6e57432c374042f&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(mainTitleObject)));
+                xhr.send();
+                xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                    document.getElementById("MainTitle").innerText = newValue
+                }
+            }
+            } 
                 }
             }
             }    
@@ -213,46 +216,93 @@
 
         function saveCTAHeading(){
             var newValue = document.getElementById("CTAHeadingInput").value
-            var data = JSON.stringify(false);
+
 
             var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            var newData = {
-            default_value: newValue,
+            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                var CTAHeadingObject=getByKey("CTAHeading",JSON.parse(this.responseText).parameters)
+                delete CTAHeadingObject['_id'];
+                CTAHeadingObject.default_value = newValue
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fd5b6e57432c374042e&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(CTAHeadingObject)));
+                xhr.send();
+                xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                    document.getElementById("CTAHeading").innerText = newValue
+                }
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fd5b6e57432c374042e&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
-            document.getElementById("CTAHeading").innerText = newValue
-            xhr.send(data);
+            } 
+                }
+            }
+            }    
         }
 
 
         function colorChanged(e){
             var data = JSON.stringify(false);
             var newValue = e.value;
+        
+
+
             var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-            var newData = {
-            default_value: newValue,
+            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                var CTAButtonObject=getByKey("CTAButton",JSON.parse(this.responseText).parameters)
+                delete CTAButtonObject['_id'];
+                CTAButtonObject.default_value = newValue
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fcab6e57432c374042d&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(CTAButtonObject)));
+                xhr.send();
+                xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                    document.getElementById("CTAButton").innerText = newValue
+                }
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fcab6e57432c374042d&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
-            document.getElementById("CTAButton").style.backgroundColor = newValue
-            xhr.send(data);
+            } 
+                }
+            }
+            }   
         }
 
 
         function formStatus(){
             var data = JSON.stringify(false);
             var newValue = document.getElementById("Form").checked ? "unset" : "hide";
-            console.log(newValue)
+          
+          
             var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-            var newData = {
-            default_value: newValue,
+            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
+            xhr.send();
+            xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                var formObject=getByKey("CTAButton",JSON.parse(this.responseText).parameters)
+                delete formObject['_id'];
+                formObject.default_value = newValue
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fe06199db32c86ba6e7&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(formObject)));
+                xhr.send();
+                xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if ((this.status == 200) && (this.status < 300)) {
+                    document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
+                }
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fe06199db32c86ba6e7&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
-            document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
-            xhr.send(data);
+            } 
+                }
+            }
+            }  
+          
+   
         }
 
 
