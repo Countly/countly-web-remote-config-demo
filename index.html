@@ -255,7 +255,7 @@
             xhr.onreadystatechange = function () {
             if (this.readyState === 4) {
                 if ((this.status == 200) && (this.status < 300)) {
-                var CTAButtonObject=getByKey("CTAButton",JSON.parse(this.responseText).parameters)
+                var CTAButtonObject=getByKey("CTAButtonColor",JSON.parse(this.responseText).parameters)
                 delete CTAButtonObject['_id'];
                 CTAButtonObject.default_value = newValue
                 var xhr = new XMLHttpRequest();
