@@ -264,7 +264,7 @@
                 xhr.onreadystatechange = function () {
             if (this.readyState === 4) {
                 if ((this.status == 200) && (this.status < 300)) {
-                    document.getElementById("CTAButton").innerText = newValue
+                    document.getElementById("CTAButton").style.backgroundColor = newValue
                 }
             }
             } 
