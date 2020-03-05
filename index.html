@@ -195,7 +195,6 @@
                 var mainTitleObject=getByKey("MainTitle",JSON.parse(this.responseText).parameters)
                 delete mainTitleObject['_id'];
                 mainTitleObject.default_value = newValue
-                console.log(JSON.stringify(mainTitleObject))
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609feeb6e57432c374042f&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(mainTitleObject)));
                 xhr.send();
