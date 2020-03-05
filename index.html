@@ -131,9 +131,11 @@
         //some default pre init
         var Countly = Countly || {};
         Countly.q = Countly.q || [];
-    
+        var appKey = "c2ae3fa480b274ad7b2a37587ed0639f1cd74e58";
+        var apiKey = "fbade55547a5e56d70981dda8966afc5";
+        var app_id = "5e58fe03b6e57432c373ad80";
         //provide countly initialization parameters
-        Countly.app_key = "57a1a2d37c68b0f0238076f5f144ed8fee5a3a04";
+        Countly.app_key = appKey
         Countly.url = 'https://demo.count.ly/';
         Countly.app_version = "1.0.0";
         Countly.debug = false;
@@ -176,7 +178,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e590096b6e57432c373ad82&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609feeb6e57432c374042f&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
             document.getElementById("MainTitle").innerText = newValue
             xhr.send(data);
         }
@@ -195,7 +197,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900aab6e57432c373ad83&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fd5b6e57432c374042e&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
             document.getElementById("CTAHeading").innerText = newValue
             xhr.send(data);
         }
@@ -212,7 +214,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900b36199db32c86b4f94&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fcab6e57432c374042d&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
             document.getElementById("CTAButton").style.backgroundColor = newValue
             xhr.send(data);
         }
@@ -230,7 +232,7 @@
             conditions: [ ],
             description: "-"
             }
-            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e5900c7b6e57432c373ad84&app_id=5e452f7a6199db32c86a4c38&api_key=fbade55547a5e56d70981dda8966afc5&parameter="+ JSON.stringify(newData));
+            xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fe06199db32c86ba6e7&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ JSON.stringify(newData));
             document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
             xhr.send(data);
         }
