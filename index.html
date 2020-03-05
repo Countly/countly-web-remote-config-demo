@@ -246,9 +246,6 @@
         function colorChanged(e){
             var data = JSON.stringify(false);
             var newValue = e.value;
-        
-
-
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
             xhr.send();
@@ -277,15 +274,13 @@
         function formStatus(){
             var data = JSON.stringify(false);
             var newValue = document.getElementById("Form").checked ? "unset" : "hide";
-          
-          
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
             xhr.send();
             xhr.onreadystatechange = function () {
             if (this.readyState === 4) {
                 if ((this.status == 200) && (this.status < 300)) {
-                var formObject=getByKey("CTAButton",JSON.parse(this.responseText).parameters)
+                var formObject=getByKey("Form",JSON.parse(this.responseText).parameters)
                 delete formObject['_id'];
                 formObject.default_value = newValue
                 var xhr = new XMLHttpRequest();
