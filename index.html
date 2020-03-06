@@ -9,8 +9,44 @@
 </head>
 
 <body>
-    <div class="w-full shadow p-5 mb-10">
+    <div class="w-full shadow p-5 mb-10 flex flex-row justify-between">
         <img src="countly-logo.svg" width="200" alt="countly">
+        <div class="flex flex-row">
+            <div class="px-10">
+            <strong>User Plan</strong>
+                <form onchange="userPlanChanged()">
+                    <input type="radio" id="regular" name="plan" value="regular">
+                    <label for="regular">Regular</label><br>
+                    <input type="radio" id="basic" name="plan" value="basic">
+                    <label for="basic">Basic</label><br>
+                    <input type="radio" id="pro" name="plan" value="pro">
+                    <label for="pro">Pro</label>
+                </form> 
+            </div>
+            <div class="px-10">
+                <strong>User Country</strong>
+                <form onchange="userCountryChanged()">
+                    <input type="radio" id="turkey" name="country" value="TR">
+                    <label for="turkey">Turkey</label><br>
+                    <input type="radio" id="other" name="country" value="US">
+                    <label for="other">Other</label><br>
+                </form> 
+            </div>
+            <div class="px-10">
+                <strong>User Type</strong>
+                <form onchange="userTypeChanged()">
+                    <input type="radio" id="beta" name="userType" value="true">
+                    <label for="betaTestUser">Beta Test User</label><br>
+                    <input type="radio" id="regularUser" name="userType" value="false">
+                    <label for="regularUser">Regular User</label>
+                </form> 
+            </div>
+            <div class="px-10 align-middle flex">
+                <button onclick="location.reload()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Save
+                  </button>
+            </div>
+        </div>
     </div>
     <div class="mx-auto p-5">
         <div class="flex flex-row flex-wrap w-full">
@@ -128,6 +164,7 @@
 
 
     <script type='text/javascript'>
+
         //some default pre init
         var Countly = Countly || {};
         Countly.q = Countly.q || [];
@@ -149,7 +186,6 @@
         Countly.q.push(['track_forms']);
         Countly.q.push(['collect_from_forms']);
         Countly.q.push(['track_scrolls']);
-    
     
         Countly.remote_config = function(err, remoteConfigs){
         if (!err) {
@@ -181,8 +217,22 @@
 
         
  
+        function userPlanChanged(){
+            var selectedUserPlan = document.querySelector('input[name="plan"]:checked').value;
+            Countly.q.push(['userData.set', "plan", selectedUserPlan]) //set custom property
+            Countly.q.push(['userData.save']) //send userData to server
+        }
 
+        function userTypeChanged(){
+            var selectedUserType = document.querySelector('input[name="userType"]:checked').value;
+            Countly.q.push(['userData.set', "isTestUser", selectedUserType]) //set custom property
+            Countly.q.push(['userData.save']) //send userData to server
+        }
 
+        function userCountryChanged(){
+            var selectedCountry = document.querySelector('input[name="country"]:checked').value;
+            Countly.country_code = selectedCountry;
+        }
 
         function saveMainTitle(){
             var newValue = document.getElementById("mainTitleInput").value
