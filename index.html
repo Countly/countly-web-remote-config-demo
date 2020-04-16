@@ -9,147 +9,131 @@
 </head>
 
 <body>
-    <div class="w-full shadow p-5 mb-10 flex flex-col md:flex-row justify-between flex-wrap">
-        <img src="countly-logo.svg" width="200" alt="countly">
-        <div class="flex flex-col md:flex-row mt-5 md:mt-0">
-            <div class="px-10">
-                <strong>User Country</strong>
-                <form onchange="userCountryChanged()">
-                    <input type="radio" id="turkey" name="country" value="TR">
-                    <label for="turkey">Turkey</label><br>
-                    <input type="radio" id="other" name="country" value="US">
-                    <label for="other">Other</label><br>
-                </form> 
-            </div>
-            <div class="px-10">
-            <strong>User Plan</strong>
-                <form onchange="userPlanChanged()">
-                    <input type="radio" id="regular" name="plan" value="regular">
-                    <label for="regular">Regular</label><br>
-                    <input type="radio" id="basic" name="plan" value="basic">
-                    <label for="basic">Basic</label><br>
-                    <input type="radio" id="pro" name="plan" value="pro">
-                    <label for="pro">Pro</label>
-                </form> 
-            </div>
-
-            <div class="px-10">
-                <strong>User Type</strong>
-                <form onchange="userTypeChanged()">
-                    <input type="radio" id="beta" name="userType" value="true">
-                    <label for="betaTestUser">Beta Test User</label><br>
-                    <input type="radio" id="regularUser" name="userType" value="false">
-                    <label for="regularUser">Regular User</label>
-                </form> 
-            </div>
-            <div class="px-10 align-middle flex">
-                <button onclick="location.reload()" class="m-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Save
-                  </button>
-            </div>
-        </div>
+    <div class="w-full shadow p-2 flex flex-col md:flex-row justify-between flex-wrap">
+        <img src="countly-logo.svg" width="100" alt="countly">
+    
     </div>
-    <div class="mx-auto p-5">
-        <div class="flex flex-row flex-wrap w-full">
-            <div class="flex flex-col flex-wrap lg:w-5/12">
-                <div class="flex flex-wrap flex-row">
-                    <div class="md:w-1/3">
-                        <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                            1 - Edit Main Title
-                        </label>
+    <div class="mx-auto">
+
+           <div class="flex flex-col p-2" style="background: #00BB47">
+               <h2 class="text-2xl m-2 text-white">Business Unit Management Panel</h2>
+               <div class="flex flex-row flex-wrap w-full" >
+                    <div onclick="changeUserProfile('TR','pro','false',this)" class="option w-1/6 border border-gray-400 hover:border-green-400 bg-white rounded-b p-4 m-2 leading-normal cursor-pointer">
+                        <div class="flex flex-col">
+                            <strong class="text-xl">Scenario 1</strong>
+                            <span class="text-gray-800 text-base"><strong>Country : </strong>TR</span>
+                            <span class="text-gray-800 text-base"><strong>User Plan : </strong>Pro</span>
+                            <span class="text-gray-800 text-base"><strong>User Type : </strong>Regular</span>
+                        </div>
+                        <div class="mt-3">
+                            <strong class="text-xl">Actions : </strong>
+                            <ul>
+                                <li class="text-gray-800 text-base"><strong>Form : </strong>show</li>
+                                <li class="text-gray-800 text-base"><strong>Button background : </strong> <span class="text-blue-800">blue</span></li>
+                                <li class="text-gray-800 text-base"><strong>Campaign : </strong> Biggest sale</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <input class="appearance-none border-2 border-gray-700 rounded p-1" id="mainTitleInput"
-                            type="text" value="">
+                    <div onclick="changeUserProfile('US','pro','false',this)" class="option w-1/6 border border-gray-400 hover:border-green-400 bg-white rounded-b p-4 m-2 leading-normal cursor-pointer">
+                        <div class="flex flex-col">
+                            <strong class="text-xl">Scenario 2</strong>
+                            <span class="text-gray-800 text-base"><strong>Country : </strong>US</span>
+                            <span class="text-gray-800 text-base"><strong>User Plan : </strong>Pro</span>
+                            <span class="text-gray-800 text-base"><strong>User Type : </strong>Regular</span>
+                        </div>
+                        <div class="mt-3">
+                            <strong class="text-xl">Actions : </strong>
+                            <ul>
+                                <li class="text-gray-800 text-base"><strong>Form : </strong>hide</li>
+                                <li class="text-gray-800 text-base"><strong>Button background : </strong> <span class="text-red-800">red</span></li>
+                                <li class="text-gray-800 text-base"><strong>Campaign : </strong> Biggest sale</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <button class="ml-4 shadow font-bold py-2 px-4 rounded" onclick="saveMainTitle()" type="button">
-                            Save
-                        </button>
+                    <div onclick="changeUserProfile('US','pro','true',this)" class="option w-1/6 border border-gray-400 hover:border-green-400 bg-white rounded-b p-4 m-2 leading-normal cursor-pointer">
+                        <div class="flex flex-col">
+                            <strong class="text-xl">Scenario 3</strong>
+                            <span class="text-gray-800 text-base"><strong>Country : </strong>US</span>
+                            <span class="text-gray-800 text-base"><strong>User Plan : </strong>Pro</span>
+                            <span class="text-gray-800 text-base"><strong>User Type : </strong>Test User</span>
+                        </div>
+                        <div class="mt-3">
+                            <strong class="text-xl">Actions : </strong>
+                            <ul>
+                                <li class="text-gray-800 text-base"><strong>Form : </strong>hide</li>
+                                <li class="text-gray-800 text-base"><strong>Button background : </strong> <span class="text-green-800">green</span></li>
+                                <li class="text-gray-800 text-base"><strong>Campaign : </strong> Biggest sale</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-row">
-                    <div class="md:w-1/3">
-                        <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                            2 - Edit CTA Heading
-                        </label>
+                    <div onclick="changeUserProfile('TR','regular','true',this)" class="option w-1/6 border border-gray-400 hover:border-green-400 bg-white rounded-b p-4 m-2 leading-normal cursor-pointer">
+                        <div class="flex flex-col">
+                            <strong class="text-xl">Scenario 4</strong>
+                            <span class="text-gray-800 text-base"><strong>Country : </strong>TR</span>
+                            <span class="text-gray-800 text-base"><strong>User Plan : </strong>Regular</span>
+                            <span class="text-gray-800 text-base"><strong>User Type : </strong>Test User</span>
+                        </div>
+                        <div class="mt-3">
+                            <strong class="text-xl">Actions : </strong>
+                            <ul>
+                                <li class="text-gray-800 text-base"><strong>Form : </strong>show</li>
+                                <li class="text-gray-800 text-base"><strong>Button background : </strong> <span class="text-pink-800">ping</span></li>
+                                <li class="text-gray-800 text-base"><strong>Campaign : </strong> Saturday sale</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <input class="appearance-none border-2 border-gray-700 rounded p-1" id="CTAHeadingInput"
-                            type="text" value="">
+                    <div onclick="changeUserProfile('DE','basic','false',this)" class="option w-1/6 border border-gray-400 hover:border-green-400 bg-white rounded-b p-4 m-2 leading-normal cursor-pointer">
+                        <div class="flex flex-col">
+                            <strong class="text-xl">Scenario 5</strong>
+                            <span class="text-gray-800 text-base"><strong>Country : </strong>DE</span>
+                            <span class="text-gray-800 text-base"><strong>User Plan : </strong>Basic</span>
+                            <span class="text-gray-800 text-base"><strong>User Type : </strong>Regular</span>
+                        </div>
+                        <div class="mt-3">
+                            <strong class="text-xl">Actions : </strong>
+                            <ul>
+                                <li class="text-gray-800 text-base"><strong>Form : </strong>hide</li>
+                                <li class="text-gray-800 text-base"><strong>Button background : </strong> black</li>
+                                <li class="text-gray-800 text-base"><strong>Campaign : </strong> Saturday sale</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <button class="ml-4 shadow font-bold py-2 px-4 rounded" onclick="saveCTAHeading()" type="button">
-                            Save
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-row flex-wrap lg:w-4/12">
-                <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                    3 - Change the color of CTA Button
-                </label>
-                <div class="flex flex-col">
-                    <div>
-                        <input type="radio" id="red" onchange="colorChanged(this)" name="gender" value="red">
-                        <label for="red">Red</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="green" onchange="colorChanged(this)" name="gender" value="green">
-                        <label for="green">Green</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="blue" onchange="colorChanged(this)" name="gender" value="blue">
-                        <label for="blue">Blue</label>
-                    </div>
+                
+               </div>
+                
+           </div>
 
 
-                </div>
-            </div>
 
-            <div class="flex flex-row md:w-3/12">
-                <label class="font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
-                    4 - Show / Hide Form
-                </label>
-                <div>
-
-                    <input type="checkbox" id="Form" onchange="formStatus()" name="Form" checked>
-                    <label for="vehicle3"> Show the form</label>
-                </div>
+          
 
 
-            </div>
+           
 
-        </div>
         <hr class="my-4">
         <div class="flex flex-row flex-wrap w-full">
             <div class="md:w-1/2 p-4">
-                <h1 class="text-3xl" id="MainTitle">Main Title</h1>
-                <h3 class="text-xl">Countly</h3>
-                <p>
-                    Countly is the best analytics platform to understand and enhance customer journeys in web, desktop and mobile applications. We securely process billions of data points every day in the cloud and on-premises in order to help companies across the globe grow their business.
-
-                </p>
+                <img id="campaign" class="img-fluid" />
             </div>
             <div class="md:w-1/2 p-4">
-                <h1 class="text-3xl" id="CTAHeading">CTA Heading</h1>
-                <span>Macoroni cheese slices squirty cheese edam</span>
+                <h1 class="text-3xl" id="MainTitle">Main Title</h1>
+                <span>Please complete your profile.</span>
                 <form class="p-5" id="form">
                     <div class="mb-4">
 
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="username" type="text" placeholder="name">
+                            id="sport" type="text" placeholder="Your favorite sport">
                     </div>
                     <div class="mb-6">
 
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="password" type="text" placeholder="email">
+                            id="movie" type="text" placeholder="Your favorite movie">
                     </div>
                     <div class="flex items-center justify-between">
-                        <button class="shadow font-bold py-2 px-4 rounded text-white" onclick="signUp()" type="button" id="CTAButton">
-                            SignUp
+                        <button class="shadow font-bold py-2 px-4 rounded text-white bg-red-500" type="button" id="CTAButton">
+                            Save
                         </button>
 
                     </div>
@@ -174,25 +158,25 @@
         Countly.app_version = "1.0.0";
         Countly.debug = true;
         Countly.remote_config = true;
+        Countly.interval = 100
         Countly.q.push(['track_sessions']);
-        Countly.q.push(['track_pageview']);
-        Countly.q.push(['track_clicks']);
-        Countly.q.push(['track_errors']);
-        Countly.q.push(['track_links']);
-        Countly.q.push(['track_forms']);
-        Countly.q.push(['collect_from_forms']);
-        Countly.q.push(['track_scrolls']);
-    
+
+
         Countly.remote_config = function(err, remoteConfigs){
         if (!err) {
-            document.getElementById("MainTitle").innerText = remoteConfigs.MainTitle
-            document.getElementById("mainTitleInput").value = remoteConfigs.MainTitle
-            document.getElementById("CTAHeading").innerText = remoteConfigs.CTAHeading
-            document.getElementById("CTAHeadingInput").value = remoteConfigs.CTAHeading
-            document.getElementById("CTAButton").style.backgroundColor = remoteConfigs.CTAButtonColor
-            document.getElementById(remoteConfigs.CTAButtonColor).checked = true
-            document.getElementById("form").style.display = remoteConfigs.Form === "hide" ? "none" : "unset"
-            document.getElementById("Form").checked = remoteConfigs.Form !== "hide"
+
+                document.getElementById("MainTitle").innerText = remoteConfigs.MainTitle
+                if(remoteConfigs.Form === "hide"){
+                    document.getElementById("form").innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">Form hided</div>';
+                }else{
+                    document.getElementById("form").innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">Form hided</div>';
+                    document.getElementById("CTAButton").style.backgroundColor = remoteConfigs.CTAButtonColor
+                }
+                if(remoteConfigs.campaign === 0){
+                    document.getElementById("campaign").src = "campaign1.jpg";
+                }else{
+                    document.getElementById("campaign").src = "campaign2.jpg";
+                }
         }
     };
 
@@ -212,145 +196,48 @@
 }
 
         
- 
-        function userPlanChanged(){
-            var selectedUserPlan = document.querySelector('input[name="plan"]:checked').value;
-            Countly.q.push(['userData.set', "plan", selectedUserPlan]) //set custom property
-            Countly.q.push(['userData.save']) //send userData to server
-        }
 
-        function userTypeChanged(){
-            var selectedUserType = document.querySelector('input[name="userType"]:checked').value;
-            Countly.q.push(['userData.set', "isTestUser", selectedUserType]) //set custom property
-            Countly.q.push(['userData.save']) //send userData to server
-        }
-
-        function userCountryChanged(){
-            var selectedCountry = document.querySelector('input[name="country"]:checked').value;
-            Countly.country_code = selectedCountry;
-        }
-
-        function saveMainTitle(){
-            var newValue = document.getElementById("mainTitleInput").value
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
-            xhr.send();
-            xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                var mainTitleObject=getByKey("MainTitle",JSON.parse(this.responseText).parameters)
-                delete mainTitleObject['_id'];
-                mainTitleObject.default_value = newValue
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609feeb6e57432c374042f&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(mainTitleObject)));
-                xhr.send();
-                xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                    document.getElementById("MainTitle").innerText = newValue
-                }
+        function changeUserProfile(country,plan,type,e){
+            const options = document.getElementsByClassName('option')
+            for(let i = 0 ; i < options.length ; i++){
+                options[i].classList.remove("border-green-400");
             }
-            } 
-                }
-            }
-            }    
-
+            e.classList.add("border-green-400");
+            // change user plan
+            Countly.q.push(['userData.set', "plan", plan]) //set custom property
+            // change user type
+            Countly.q.push(['userData.set', "isTestUser", type]) //set custom property
+            // change user country
+            Countly.country_code = country
+            Countly.q.push(['userData.save']) //send userData to server
             
+            setTimeout(function(){
+
+            Countly.fetch_remote_config(function(err, remoteConfigs){
+                if (!err) {
+                    document.getElementById("MainTitle").innerText = remoteConfigs.MainTitle
+                    if(remoteConfigs.Form === "hide"){
+                    document.getElementById("form").innerHTML = '<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">Form hided</div>';
+                }else{
+                    document.getElementById("form").innerHTML = '<div class="mb-4"> <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sport" type="text" placeholder="Your favorite sport"> </div> <div class="mb-6"> <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="movie" type="text" placeholder="Your favorite movie"> </div> <div class="flex items-center justify-between"> <button class="shadow font-bold py-2 px-4 rounded text-white bg-red-500" type="button" id="CTAButton"> Save </button> </div>';
+                    document.getElementById("CTAButton").style.backgroundColor = remoteConfigs.CTAButtonColor
+
+                }
+
+                if(remoteConfigs.campaign === 0){
+                    document.getElementById("campaign").src = "campaign1.jpg";
+                }else{
+                    document.getElementById("campaign").src = "campaign2.jpg";
+                }
+               
+                }
+
+            })  
+
+            },1500)
+                
         }
 
-
-        function saveCTAHeading(){
-            var newValue = document.getElementById("CTAHeadingInput").value
-
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
-            xhr.send();
-            xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                var CTAHeadingObject=getByKey("CTAHeading",JSON.parse(this.responseText).parameters)
-                delete CTAHeadingObject['_id'];
-                CTAHeadingObject.default_value = newValue
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fd5b6e57432c374042e&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(CTAHeadingObject)));
-                xhr.send();
-                xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                    document.getElementById("CTAHeading").innerText = newValue
-                }
-            }
-            } 
-                }
-            }
-            }    
-        }
-
-
-        function colorChanged(e){
-            var data = JSON.stringify(false);
-            var newValue = e.value;
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
-            xhr.send();
-            xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                var CTAButtonObject=getByKey("CTAButtonColor",JSON.parse(this.responseText).parameters)
-                delete CTAButtonObject['_id'];
-                CTAButtonObject.default_value = newValue
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fcab6e57432c374042d&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(CTAButtonObject)));
-                xhr.send();
-                xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                    document.getElementById("CTAButton").style.backgroundColor = newValue
-                }
-            }
-            } 
-                }
-            }
-            }   
-        }
-
-
-        function formStatus(){
-            var data = JSON.stringify(false);
-            var newValue = document.getElementById("Form").checked ? "unset" : "hide";
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://demo.count.ly/o?app_id="+ app_id + "&api_key="+ apiKey  +"&method=remote-config");
-            xhr.send();
-            xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                var formObject=getByKey("Form",JSON.parse(this.responseText).parameters)
-                delete formObject['_id'];
-                formObject.default_value = newValue
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "https://demo.count.ly/i/remote-config/update-parameter?parameter_id=5e609fe06199db32c86ba6e7&app_id=" + app_id + "&api_key="+ apiKey  +"&parameter="+ encodeURIComponent(JSON.stringify(formObject)));
-                xhr.send();
-                xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                if ((this.status == 200) && (this.status < 300)) {
-                    document.getElementById("form").style.display = newValue === "hide" ? "none" : "unset"
-                }
-            }
-            } 
-                }
-            }
-            }  
-          
-   
-        }
-
-
-        function signUp(){
-            Countly.q.push(['add_event',{
-                "key": "signUp"
-            }]);
-        }
 
 
         //load countly script asynchronously
